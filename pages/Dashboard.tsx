@@ -175,9 +175,19 @@ const EnquiriesTab: React.FC = () => {
               {list.map((row) => (
                 <tr key={row._id} className="border-b border-gray-100 last:border-0">
                   <td className="p-3 text-gray-800">{row.name}</td>
-                  <td className="p-3 text-gray-600">{row.email}</td>
-                  <td className="p-3 text-gray-600">{row.phone}</td>
-                  <td className="p-3 text-gray-600 max-w-xs truncate">{row.message || '—'}</td>
+                  <td className="p-3 text-gray-600">
+                    <a href={`mailto:${row.email}`} className="text-blue-600 hover:underline">
+                      {row.email}
+                    </a>
+                  </td>
+                  <td className="p-3 text-gray-600">
+                    <a href={`tel:${row.phone}`} className="text-blue-600 hover:underline">
+                      {row.phone}
+                    </a>
+                  </td>
+                  <td className="p-3 text-gray-600 max-w-sm whitespace-normal break-words">
+                    {row.message || '—'}
+                  </td>
                   <td className="p-3 text-gray-500 whitespace-nowrap">{formatDate(row.createdAt)}</td>
                 </tr>
               ))}

@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { ObjectId } from 'mongodb';
 import { verifyToken } from '../lib/auth.js';
 import { getDb } from '../lib/db.js';
-import { GALLERY_MEDIA } from '../constants';
+import { GALLERY_MEDIA } from '../constants.js';
 
 const COLLECTION = 'gallery';
 const MAX_FILE_BYTES = 5 * 1024 * 1024; // 5 MB
