@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { ObjectId } from 'mongodb';
-import { verifyToken } from '../lib/auth';
-import { getDb } from '../lib/db';
+import { verifyToken } from '../lib/auth.js';
+import { getDb } from '../lib/db.js';
 import { GALLERY_MEDIA } from '../constants';
 
 const COLLECTION = 'gallery';

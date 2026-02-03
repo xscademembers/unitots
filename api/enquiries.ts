@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { verifyToken } from '../lib/auth';
-import { getDb } from '../lib/db';
+import { verifyToken } from '../lib/auth.js';
+import { getDb } from '../lib/db.js';
 
 const COLLECTION = 'contacts';
 

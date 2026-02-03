@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { createToken, getAdminCredentials } from '../lib/auth';
+import { createToken, getAdminCredentials } from '../lib/auth.js';
 
 interface LoginBody {
   username?: string;

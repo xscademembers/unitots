@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { submitContact, type ContactBody } from '../lib/contactSubmit';
+import { submitContact, type ContactBody } from '../lib/contactSubmit.js';
 
 function parseBody(req: VercelRequest): ContactBody | null {
   if (req.body == null) return null;
