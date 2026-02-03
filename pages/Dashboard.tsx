@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { LogOut, MessageSquare, ImageIcon, Plus, Trash2, GripVertical, Loader2 } from 'lucide-react';
+import { LogOut, MessageSquare, ImageIcon, Plus, Trash2, GripVertical, Loader2, Home } from 'lucide-react';
 
 const TOKEN_KEY = 'dashboard_token';
 const API = '';
@@ -95,6 +96,15 @@ const LoginForm: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
             Sign in
           </button>
         </form>
+        <p className="mt-6 text-center">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-gray-800 transition-colors"
+          >
+            <Home size={18} />
+            Go back to home page
+          </Link>
+        </p>
       </motion.div>
     </div>
   );
@@ -444,14 +454,23 @@ const Dashboard: React.FC = () => {
     <div className="min-h-screen bg-gray-100">
       <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
         <h1 className="font-display text-xl font-bold text-gray-800">UNITOTS Dashboard</h1>
-        <button
-          type="button"
-          onClick={handleLogout}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100"
-        >
-          <LogOut size={18} />
-          Logout
-        </button>
+        <div className="flex items-center gap-2">
+          <Link
+            to="/"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-gray-800 transition-colors"
+          >
+            <Home size={18} />
+            Go to home page
+          </Link>
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100"
+          >
+            <LogOut size={18} />
+            Logout
+          </button>
+        </div>
       </header>
       <nav className="bg-white border-b border-gray-200 px-4 flex gap-1">
         <button
