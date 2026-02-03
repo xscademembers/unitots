@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNITOTS - A Happy Place to Learn, Play & Grow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Quicksand', 'sans-serif'],
+              display: ['Fredoka', 'cursive'],
+            },
+            colors: {
+              // Redefining colors for a fresher, modern preschool look
+              gray: {
+                50: '#FAFAF9',
+                100: '#F5F5F4',
+                200: '#E7E5E4',
+                600: '#57534E',
+                700: '#44403C',
+                800: '#292524', // Warm gray/stone
+                900: '#1C1917',
+              },
+              yellow: {
+                50: '#FFFBEB',
+                100: '#FEF3C7',
+                200: '#FDE68A',
+                300: '#FCD34D',
+                400: '#FBBF24', // Sunny
+                500: '#F59E0B', // Honey
+                600: '#D97706',
+                800: '#92400E',
+                900: '#78350F', // Caramel
+              },
+              pink: {
+                50: '#FDF2F8',
+                100: '#FCE7F3',
+                200: '#FBCFE8',
+                400: '#F472B6',
+                500: '#EC4899', // Hot Pink
+                600: '#DB2777', // Magenta
+              },
+              blue: {
+                50: '#F0F9FF',
+                100: '#E0F2FE',
+                200: '#BAE6FD',
+                400: '#38BDF8',
+                500: '#0EA5E9', // Sky Blue
+                600: '#0284C7',
+              },
+              green: {
+                50: '#F0FDF4',
+                100: '#DCFCE7',
+                500: '#22C55E', // Vibrant Green
+                600: '#16A34A',
+              },
+              purple: {
+                50: '#FAF5FF',
+                100: '#F3E8FF',
+                500: '#A855F7',
+                600: '#9333EA',
+              },
+              // Custom semantic pastel palette
+              pastel: {
+                yellow: '#FFFBEB', // Matches yellow-50
+                blue: '#F0F9FF',   // Matches blue-50
+                pink: '#FDF2F8',   // Matches pink-50
+                green: '#F0FDF4',  // Matches green-50
+                lavender: '#FAF5FF', // Matches purple-50
+                mint: '#F0FDFA',   // Matches teal-50
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Quicksand', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Fredoka', cursive;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

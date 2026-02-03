@@ -1,0 +1,66 @@
+/* Base styles for UNITOTS preschool website */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Minimum tap target for touch devices (44px) */
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fredoka', cursive;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #EC4899;
+  outline-offset: 2px;
+}
+
+/* Smooth animations */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile/tablet: prevent horizontal overflow */
+#root {
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+/* Responsive video in gallery */
+video {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Masonry gallery: 20px gap between items */
+.gallery-masonry {
+  column-gap: 20px;
+}
+
+.gallery-masonry > * {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  page-break-inside: avoid;
+}
