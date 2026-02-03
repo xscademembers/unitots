@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import Dashboard from './pages/Dashboard';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -21,20 +22,29 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <ScrollToTop />
-      {/* Changed bg-white to bg-yellow-50/50 for a warmer feel */}
       <div className="flex flex-col min-h-screen min-w-0 overflow-x-hidden bg-[#FFFEF9] text-gray-800 font-sans selection:bg-yellow-200">
-        <Navbar />
-        <main className="flex-grow">
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </AnimatePresence>
-        </main>
-        <Footer />
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/*"
+              element={
+                <>
+                  <Navbar />
+                  <main className="flex-grow">
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/gallery" element={<Gallery />} />
+                      <Route path="/contact" element={<Contact />} />
+                    </Routes>
+                  </main>
+                  <Footer />
+                </>
+              }
+            />
+          </Routes>
+        </AnimatePresence>
       </div>
     </HashRouter>
   );

@@ -2,24 +2,55 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MapPin, Clock, Send } from 'lucide-react';
 
+const CONTACT_API = '/api/contact';
+
 const Contact: React.FC = () => {
-  const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' });
+  const [formState, setFormState] = useState({ name: '', email: '', phone: '+91 ', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const res = await fetch(CONTACT_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formState.name.trim(),
+          email: formState.email.trim(),
+          phone: formState.phone.trim(),
+          message: formState.message.trim(),
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+      const apiError = typeof data?.error === 'string' ? data.error : null;
+
+      if (!res.ok) {
+        if (res.status === 404) {
+          setSubmitError('Contact form could not be reached. When running locally, add MONGODB_URI to .env.local and restart the dev server.');
+        } else {
+          setSubmitError(apiError ?? 'Something went wrong. Please try again.');
+        }
+        return;
+      }
+
       setSubmitted(true);
-      setFormState({ name: '', email: '', phone: '', message: '' });
-    }, 1500);
+      setFormState({ name: '', email: '', phone: '+91 ', message: '' });
+    } catch {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
+    if (submitError) setSubmitError(null);
   };
 
   return (
@@ -49,7 +80,7 @@ const Contact: React.FC = () => {
 
             <div className="space-y-4 sm:space-y-6">
               {[
-                { icon: Phone, title: 'Call Us', text: '9673579197', color: 'bg-blue-100 text-blue-600' },
+                { icon: Phone, title: 'Call Us', text: '9673579197', tel: '+919673579197', color: 'bg-blue-100 text-blue-600' },
                 { icon: MapPin, title: 'Visit Us', text: 'A-6 Ashok Bhavan , Near Sunder Apartment, Behind Gomti Hotel, East Suryanagar, Kalamna Road, Nagpur.', color: 'bg-yellow-100 text-yellow-600' },
                 { icon: Clock, title: 'Working Hours', text: 'Mon - Sat: 8:00 AM - 6:00 PM', color: 'bg-green-100 text-green-600' },
               ].map((item, idx) => (
@@ -66,7 +97,11 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-gray-800 text-sm sm:text-base mb-1">{item.title}</h3>
-                    <p className="text-gray-600 text-xs sm:text-sm break-words">{item.text}</p>
+                    {'tel' in item && item.tel ? (
+                      <a href={`tel:${item.tel}`} className="text-gray-600 text-xs sm:text-sm break-words hover:text-pink-600 underline-offset-2 hover:underline transition-colors">{item.text}</a>
+                    ) : (
+                      <p className="text-gray-600 text-xs sm:text-sm break-words">{item.text}</p>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -87,15 +122,20 @@ const Contact: React.FC = () => {
                 </div>
                 <h3 className="font-display text-xl sm:text-2xl font-bold text-gray-800 mb-2">Message Sent!</h3>
                 <p className="text-gray-600 text-sm sm:text-base">Thank you for reaching out. We will get back to you shortly.</p>
-                <button onClick={() => setSubmitted(false)} className="mt-4 sm:mt-6 text-pink-500 font-bold hover:underline text-sm sm:text-base">Send another message</button>
+                <button type="button" onClick={() => setSubmitted(false)} className="mt-4 sm:mt-6 text-pink-500 font-bold hover:underline text-sm sm:text-base">Send another message</button>
               </div>
             ) : null}
 
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8">Send a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6" noValidate>
+              {submitError ? (
+                <div className="p-3 sm:p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm sm:text-base" role="alert">
+                  {submitError}
+                </div>
+              ) : null}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-xs sm:text-sm font-bold text-gray-700 mb-2">Parent's Name</label>
+                  <label htmlFor="name" className="block text-xs sm:text-sm font-bold text-gray-700 mb-2">Parent's Name <span className="text-red-500">*</span></label>
                   <input
                     type="text"
                     id="name"
@@ -109,7 +149,7 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-xs sm:text-sm font-bold text-gray-700 mb-2">Phone Number</label>
+                  <label htmlFor="phone" className="block text-xs sm:text-sm font-bold text-gray-700 mb-2">Phone Number <span className="text-red-500">*</span></label>
                   <input
                     type="tel"
                     id="phone"
@@ -118,14 +158,14 @@ const Contact: React.FC = () => {
                     value={formState.phone}
                     onChange={handleChange}
                     className="w-full min-h-[44px] px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-gray-50 border border-gray-200 focus:border-pink-300 focus:ring-2 sm:focus:ring-4 focus:ring-pink-100 outline-none transition-all text-base"
-                    placeholder="(555) 123-4567"
+                    placeholder="+91 9876543210"
                     autoComplete="tel"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-xs sm:text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-xs sm:text-sm font-bold text-gray-700 mb-2">Email Address <span className="text-red-500">*</span></label>
                 <input
                   type="email"
                   id="email"
@@ -140,17 +180,16 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs sm:text-sm font-bold text-gray-700 mb-2">Message / Inquiry</label>
+                <label htmlFor="message" className="block text-xs sm:text-sm font-bold text-gray-700 mb-2">Message / Inquiry <span className="text-gray-400 font-normal">(optional)</span></label>
                 <textarea
                   id="message"
                   name="message"
-                  required
                   rows={4}
                   value={formState.message}
                   onChange={handleChange}
                   className="w-full min-h-[120px] px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-gray-50 border border-gray-200 focus:border-pink-300 focus:ring-2 sm:focus:ring-4 focus:ring-pink-100 outline-none transition-all resize-y text-base"
                   placeholder="Tell us about your child or ask a question..."
-                ></textarea>
+                />
               </div>
 
               <button

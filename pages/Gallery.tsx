@@ -1,7 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Maximize2, X } from 'lucide-react';
 import { GALLERY_MEDIA, type GalleryMediaItem } from '../constants';
+
+export type GalleryDisplayItem = GalleryMediaItem;
 
 /** Placeholder ratio until media loads (1:1) */
 const PLACEHOLDER_RATIO = '1 / 1';
@@ -148,7 +150,31 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ item, index }) => {
   );
 };
 
+function normalizeGalleryItem(raw: { type: string; url?: string; data?: string; mimeType?: string }): GalleryDisplayItem {
+  if (raw.url) return { type: raw.type as 'image' | 'video', url: raw.url };
+  const mime = raw.mimeType || (raw.type === 'video' ? 'video/mp4' : 'image/jpeg');
+  const url = `data:${mime};base64,${raw.data || ''}`;
+  return { type: raw.type as 'image' | 'video', url };
+}
+
 const Gallery: React.FC = () => {
+  const [media, setMedia] = useState<GalleryDisplayItem[]>(GALLERY_MEDIA);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/api/gallery')
+      .then((res) => res.json())
+      .then((data) => {
+        if (cancelled) return;
+        const items = Array.isArray(data?.items) ? data.items : [];
+        if (items.length > 0) {
+          setMedia(items.map(normalizeGalleryItem));
+        }
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -170,8 +196,8 @@ const Gallery: React.FC = () => {
           className="gallery-masonry columns-1 sm:columns-2 lg:columns-3 w-full"
           style={{ columnGap: '20px' }}
         >
-          {GALLERY_MEDIA.map((item, idx) => (
-            <GalleryItem key={`${item.type}-${idx}-${item.url}`} item={item} index={idx} />
+          {media.map((item, idx) => (
+            <GalleryItem key={`gallery-${idx}-${item.type}`} item={item} index={idx} />
           ))}
         </div>
       </div>

@@ -22,39 +22,33 @@ const Footer: React.FC = () => {
               A happy place where children discover, learn, and grow through play and creativity. Nurturing tomorrow's bright minds today.
             </p>
             <div className="flex gap-2 sm:gap-3">
-              <button 
-                type="button"
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Visit our Facebook page"
                 className="bg-white min-h-[44px] min-w-[44px] p-3 rounded-full text-blue-600 shadow-sm hover:shadow-md active:scale-95 transition-all hover:bg-blue-50 touch-manipulation flex items-center justify-center"
-                onClick={(e) => {
-                  e.preventDefault();
-                  // TODO: Add actual Facebook URL when available
-                }}
               >
                 <Facebook size={20} className="sm:w-5 sm:h-5" />
-              </button>
-              <button 
-                type="button"
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Visit our Instagram page"
                 className="bg-white min-h-[44px] min-w-[44px] p-3 rounded-full text-pink-600 shadow-sm hover:shadow-md active:scale-95 transition-all hover:bg-pink-50 touch-manipulation flex items-center justify-center"
-                onClick={(e) => {
-                  e.preventDefault();
-                  // TODO: Add actual Instagram URL when available
-                }}
               >
                 <Instagram size={20} className="sm:w-5 sm:h-5" />
-              </button>
-              <button 
-                type="button"
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Visit our Twitter page"
                 className="bg-white min-h-[44px] min-w-[44px] p-3 rounded-full text-sky-500 shadow-sm hover:shadow-md active:scale-95 transition-all hover:bg-sky-50 touch-manipulation flex items-center justify-center"
-                onClick={(e) => {
-                  e.preventDefault();
-                  // TODO: Add actual Twitter URL when available
-                }}
               >
                 <Twitter size={20} className="sm:w-5 sm:h-5" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -83,7 +77,7 @@ const Footer: React.FC = () => {
                  <div className="bg-white p-2 rounded-lg shadow-sm mr-3 sm:mr-4 group-hover:scale-110 transition-transform flex-shrink-0">
                     <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-500" />
                  </div>
-                <span className="text-gray-600 text-sm sm:text-base lg:text-lg">9673579197</span>
+                <a href="tel:+919673579197" className="text-gray-600 text-sm sm:text-base lg:text-lg hover:text-yellow-600 underline-offset-2 hover:underline transition-colors">9673579197</a>
               </li>
             </ul>
           </div>

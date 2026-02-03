@@ -1,20 +1,44 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# UNITOTS Preschool – Website
 
-# Run and deploy your AI Studio app
+A joyful, playful website for UNITOTS Preschool, Day Care, and Activity Centre.
 
-This contains everything you need to run your app locally.
+## Prerequisites
 
-View your app in AI Studio: https://ai.studio/apps/temp/1
+- **Node.js** (v18 or later)
 
-## Run Locally
+## Run locally
 
-**Prerequisites:**  Node.js
+1. Copy [.env.example](.env.example) to `.env.local` and set:
+   - **MONGODB_URI** – MongoDB Atlas connection string (contact form + gallery).
+   - **ADMIN_USERNAME** and **ADMIN_PASSWORD** – dashboard login.
+   - **JWT_SECRET** – any long random string (for dashboard session).
 
+2. Start the app:
+```bash
+npm install
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Open the URL shown (e.g. `http://localhost:3000`). The contact form and gallery work locally and when deployed. **Dashboard** (hidden, not in the main nav): go to `/#/dashboard` to log in with ADMIN_USERNAME/ADMIN_PASSWORD. There you can view **Enquiries** (contact form submissions) and **Manage Gallery** (add/delete/reorder images and videos, stored as base64 in MongoDB; max 5 MB per file).
+
+## Build
+
+```bash
+npm run build
+```
+
+Output is in `dist/`.
+
+## Deploy to Vercel
+
+1. Connect your repo to Vercel (GitHub / GitLab / Bitbucket) and deploy.
+
+2. In the project: **Settings → Environment Variables** add:
+   - **`MONGODB_URI`** – MongoDB Atlas connection string (contact form + gallery).
+   - **`ADMIN_USERNAME`** and **`ADMIN_PASSWORD`** – dashboard login.
+   - **`JWT_SECRET`** – a long random string for dashboard sessions.
+   - Optional: **`MONGODB_DB_NAME`** (default: `unitots`).
+
+3. Redeploy after saving the variables.
+
+The `api/` folder is used by Vercel as serverless functions. The contact form will work in production once `MONGODB_URI` is set.
