@@ -106,9 +106,14 @@ export async function handleDevApi(
         }
 
         const raw = await collection.find({}).sort({ order: 1 }).toArray();
-        const items = raw.map((doc: { _id: unknown; [k: string]: unknown }) => ({
-          ...doc,
+        const items = raw.map((doc: { _id: unknown; type?: string; url?: string; data?: string; mimeType?: string; order?: number; createdAt?: unknown }) => ({
           _id: String(doc._id),
+          type: doc.type === 'video' ? 'video' : 'image',
+          order: typeof doc.order === 'number' ? doc.order : 0,
+          ...(doc.url != null && { url: String(doc.url) }),
+          ...(doc.data != null && { data: doc.data }),
+          ...(doc.mimeType != null && { mimeType: doc.mimeType }),
+          ...(doc.createdAt != null && { createdAt: doc.createdAt }),
         }));
         send(res, 200, { items });
       } catch (err) {
