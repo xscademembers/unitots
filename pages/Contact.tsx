@@ -60,13 +60,13 @@ const Contact: React.FC = () => {
       exit={{ opacity: 0 }}
       className="bg-gray-50 min-h-screen"
     >
-      <header className="bg-pastel-pink py-8 sm:py-10 md:py-14 lg:py-16 text-center px-4">
+      <header className="bg-pastel-pink py-8 sm:py-10 md:py-14 lg:py-16 text-center px-4 sm:px-6">
         <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4">Get in Touch</h1>
         <p className="text-gray-600 text-sm sm:text-base md:text-lg px-2 sm:px-0 max-w-xl mx-auto">We'd love to hear from you. Visit us or send a message!</p>
       </header>
 
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 w-full min-w-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16 lg:py-20 w-full min-w-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 xl:gap-16">
           
           {/* Contact Info */}
           <div className="space-y-6 sm:space-y-8 lg:space-y-10">

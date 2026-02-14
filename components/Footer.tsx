@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-gray-200 pt-8 sm:pt-10 md:pt-12 lg:pt-16 pb-6 sm:pb-8 min-w-0">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+    <footer className="bg-white border-t border-gray-200 pt-8 sm:pt-10 md:pt-12 lg:pt-16 pb-6 sm:pb-8 min-w-0 pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full min-w-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 lg:mb-12">
           
           {/* Brand Info */}
           <div className="space-y-4 sm:space-y-6">

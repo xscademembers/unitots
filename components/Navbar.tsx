@@ -24,9 +24,9 @@ const Navbar: React.FC = () => {
     }`;
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-yellow-100 min-w-0">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 w-full">
-        <div className="flex justify-between h-14 sm:h-16 md:h-20 items-center">
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-yellow-100 min-w-0 pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full min-w-0">
+        <div className="flex justify-between h-14 sm:h-16 md:h-20 items-center gap-2">
           {/* Logo */}
           <div 
             className="flex items-center flex-shrink-0 cursor-pointer" 
@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
             <img 
               src="https://storage.googleapis.com/new_client_files/unitots/unitots%20logo%2066.png" 
               alt="UNITOTS Logo" 
-              className="h-9 sm:h-10 md:h-12 w-auto max-h-10 sm:max-h-12"
+              className="h-8 sm:h-10 md:h-12 w-auto max-h-10 md:max-h-12 flex-shrink-0"
             />
           </div>
 

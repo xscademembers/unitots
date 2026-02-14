@@ -451,10 +451,10 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
-        <h1 className="font-display text-xl font-bold text-gray-800">UNITOTS Dashboard</h1>
-        <div className="flex items-center gap-2">
+    <div className="min-h-screen bg-gray-100 min-w-0">
+      <header className="bg-white border-b border-gray-200 px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-2">
+        <h1 className="font-display text-lg sm:text-xl font-bold text-gray-800 truncate">UNITOTS Dashboard</h1>
+        <div className="flex items-center gap-2 flex-shrink-0">
           <Link
             to="/"
             className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-gray-800 transition-colors"
@@ -472,7 +472,7 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
       </header>
-      <nav className="bg-white border-b border-gray-200 px-4 flex gap-1">
+      <nav className="bg-white border-b border-gray-200 px-4 sm:px-6 flex gap-1 overflow-x-auto">
         <button
           type="button"
           onClick={() => setTab('enquiries')}
@@ -494,7 +494,7 @@ const Dashboard: React.FC = () => {
           Manage Gallery
         </button>
       </nav>
-      <main className="max-w-6xl mx-auto p-4 sm:p-6">
+      <main className="max-w-6xl mx-auto p-4 sm:p-6 w-full min-w-0">
         {tab === 'enquiries' && <EnquiriesTab />}
         {tab === 'gallery' && <ManageGalleryTab />}
       </main>

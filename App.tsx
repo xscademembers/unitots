@@ -22,7 +22,7 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen min-w-0 overflow-x-hidden bg-[#FFFEF9] text-gray-800 font-sans selection:bg-yellow-200">
+      <div className="flex flex-col min-h-screen min-w-0 overflow-x-hidden text-gray-800 font-sans selection:bg-yellow-200" style={{ backgroundColor: 'var(--color-bg, #FFFEF9)' }}>
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />

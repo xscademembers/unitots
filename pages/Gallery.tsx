@@ -182,7 +182,7 @@ const Gallery: React.FC = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen"
     >
-      <header className="bg-pastel-lavender py-8 sm:py-10 md:py-12 lg:py-16 text-center px-4">
+      <header className="bg-pastel-lavender py-8 sm:py-10 md:py-12 lg:py-16 text-center px-4 sm:px-6">
         <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4">
           Our Moments
         </h1>
@@ -191,11 +191,8 @@ const Gallery: React.FC = () => {
         </p>
       </header>
 
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-10 md:py-12 lg:py-20">
-        <div
-          className="gallery-masonry columns-1 sm:columns-2 lg:columns-3 w-full"
-          style={{ columnGap: '20px' }}
-        >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 lg:py-20 w-full min-w-0">
+        <div className="gallery-masonry columns-1 sm:columns-2 lg:columns-3 w-full">
           {media.map((item, idx) => (
             <GalleryItem key={`gallery-${idx}-${item.type}`} item={item} index={idx} />
           ))}

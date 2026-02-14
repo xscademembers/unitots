@@ -19,8 +19,8 @@ const Home: React.FC = () => {
         <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-blue-200/50 rounded-full blur-3xl opacity-60 pointer-events-none" aria-hidden="true"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] lg:w-[800px] lg:h-[800px] bg-pink-100/30 rounded-full blur-3xl opacity-30 pointer-events-none" aria-hidden="true"></div>
 
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10 w-full min-w-0">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10 w-full min-w-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
             <motion.div
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
       {/* Intro Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white relative">
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-100 to-transparent" aria-hidden="true"></div>
-        <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 text-center w-full min-w-0">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center w-full min-w-0">
           <span className="text-blue-500 font-display font-bold text-base sm:text-lg lg:text-xl mb-2 block tracking-wide uppercase">Who We Are</span>
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 lg:mb-8">Nurturing Tomorrow's Leaders</h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed px-2 sm:px-0">
@@ -130,7 +130,7 @@ const Home: React.FC = () => {
 
       {/* Services Section */}
       <section className="py-8 sm:py-12 md:py-16 lg:py-24 bg-[#FFFDF7]">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 w-full min-w-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full min-w-0">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Our Activities & Programs</h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2 sm:px-0">
@@ -161,7 +161,7 @@ const Home: React.FC = () => {
         <div className="absolute top-0 left-0 w-48 h-48 sm:w-64 sm:h-64 bg-white opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true"></div>
         <div className="absolute bottom-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-white opacity-10 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" aria-hidden="true"></div>
 
-        <div className="max-w-5xl mx-auto px-3 sm:px-4 md:px-6 text-center relative z-10 text-white w-full min-w-0">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 text-center relative z-10 text-white w-full min-w-0">
           <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6">Ready to join the UNITOTS family?</h2>
           <p className="text-base sm:text-lg lg:text-xl opacity-90 mb-6 sm:mb-8 lg:mb-10 max-w-2xl mx-auto px-2 sm:px-0">
             Admissions are open for the upcoming session. Schedule a visit today and see our happy world yourself!
