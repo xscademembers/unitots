@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
                  <div className="bg-white p-2 rounded-lg shadow-sm mr-3 sm:mr-4 group-hover:scale-110 transition-transform flex-shrink-0">
                     <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-500" />
                  </div>
-                <a href="tel:+919673579197" className="text-gray-600 text-sm sm:text-base lg:text-lg hover:text-yellow-600 underline-offset-2 hover:underline transition-colors">9673579197</a>
+                <a href="tel:+919371696151" className="text-gray-600 text-sm sm:text-base lg:text-lg hover:text-yellow-600 underline-offset-2 hover:underline transition-colors">9371696151</a>
               </li>
             </ul>
           </div>

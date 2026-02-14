@@ -80,9 +80,9 @@ const Contact: React.FC = () => {
 
             <div className="space-y-4 sm:space-y-6">
               {[
-                { icon: Phone, title: 'Call Us', text: '9673579197', tel: '+919673579197', color: 'bg-blue-100 text-blue-600' },
+                { icon: Phone, title: 'Call Us', text: '9371696151', tel: '+919371696151', color: 'bg-blue-100 text-blue-600' },
                 { icon: MapPin, title: 'Visit Us', text: 'A-6 Ashok Bhavan , Near Sunder Apartment, Behind Gomti Hotel, East Suryanagar, Kalamna Road, Nagpur.', color: 'bg-yellow-100 text-yellow-600' },
-                { icon: Clock, title: 'Working Hours', text: 'Mon - Sat: 8:00 AM - 6:00 PM', color: 'bg-green-100 text-green-600' },
+                { icon: Clock, title: 'Working Hours', text: 'Mon - Sat: 9:00 AM to 7:00 PM', color: 'bg-green-100 text-green-600' },
               ].map((item, idx) => (
                 <motion.div 
                   key={idx}

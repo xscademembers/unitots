@@ -24,7 +24,7 @@ export const SERVICES = [
   },
   {
     title: 'Daycare',
-    description: 'Preschool daycare and evening activity classes. A safe, nurturing home away from home. Days: Saturday and Sunday',
+    description: 'Preschool daycare and evening activity classes. A safe, nurturing home away from home. Days: Mon to Fri or Saturday and Sunday',
     icon: Baby,
     color: 'bg-yellow-100 text-yellow-600',
     border: 'border-yellow-200'
