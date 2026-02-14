@@ -98,65 +98,93 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Director - side-by-side layout, image displays properly */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-pink-50/50 to-white" aria-labelledby="director-heading">
+      {/* Directors – compact cards, small circular photos */}
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[var(--color-bg-soft,#fafafa)]" aria-labelledby="director-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full min-w-0">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <h2 id="director-heading" className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 sm:mb-3">Meet Our Director</h2>
-            <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
-              Leading UNITOTS with passion and expertise in child development.
+          <header className="text-center mb-8 sm:mb-10">
+            <h2 id="director-heading" className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2">Meet Our Directors</h2>
+            <p className="text-gray-600 text-sm sm:text-base max-w-lg mx-auto">
+              Passionate leaders dedicated to child development and learning.
             </p>
+          </header>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+            {/* Director 1: The Kids Castle Fest */}
+            <motion.article
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '24px' }}
+              transition={{ duration: 0.35 }}
+              className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5 p-6 sm:p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow min-w-0"
+            >
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 rounded-full overflow-hidden bg-gray-100 ring-2 ring-pink-100">
+                <img
+                  src="https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-02-14%20at%2019.04.00%20(1).jpeg"
+                  alt="The Kids Castle Fest, Director of UNITOTS"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
+                    target.src = 'https://placehold.co/200/FEF3C7/F59E0B?text=Director';
+                  }}
+                />
+              </div>
+              <div className="flex-1 text-center sm:text-left min-w-0">
+                <p className="text-pink-500 font-semibold text-xs uppercase tracking-wider mb-1">Director</p>
+                <h3 className="font-display text-lg sm:text-xl font-bold text-gray-800 mb-2">The Kids Castle Fest</h3>
+                <p className="text-gray-600 text-sm mb-3">B.com · 5+ years experience</p>
+                <p className="text-gray-500 text-xs sm:text-sm mb-4">Drawing &amp; sketching, Abacus, Personality Development</p>
+                <a
+                  href="tel:+919371696151"
+                  className="inline-flex items-center justify-center gap-2 min-h-[40px] px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold text-sm shadow-sm hover:bg-pink-600 active:scale-[0.98] transition-transform touch-manipulation"
+                  aria-label="Call 9371696151"
+                >
+                  <Phone size={18} aria-hidden />
+                  Call 9371696151
+                </a>
+              </div>
+            </motion.article>
+
+            {/* Director 2: Dipika Dhabalia */}
+            <motion.article
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '24px' }}
+              transition={{ duration: 0.35, delay: 0.08 }}
+              className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5 p-6 sm:p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow min-w-0"
+            >
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 rounded-full overflow-hidden bg-gray-100 ring-2 ring-pink-100">
+                <img
+                  src="https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-02-14%20at%2022.23.57.jpeg"
+                  alt="Dipika Dhabalia, Director of UNITOTS"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
+                    target.src = 'https://placehold.co/200/FEF3C7/F59E0B?text=Director';
+                  }}
+                />
+              </div>
+              <div className="flex-1 text-center sm:text-left min-w-0">
+                <p className="text-pink-500 font-semibold text-xs uppercase tracking-wider mb-1">Director</p>
+                <h3 className="font-display text-lg sm:text-xl font-bold text-gray-800 mb-2">Dipika Dhabalia</h3>
+                <p className="text-gray-600 text-sm mb-3">M.com, Montessori · 10+ years experience</p>
+                <p className="text-gray-500 text-xs sm:text-sm mb-4">Abacus, Vedic Maths, Handwriting &amp; Calligraphy, Numerology</p>
+                <a
+                  href="tel:+919371696151"
+                  className="inline-flex items-center justify-center gap-2 min-h-[40px] px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold text-sm shadow-sm hover:bg-pink-600 active:scale-[0.98] transition-transform touch-manipulation"
+                  aria-label="Call 9371696151"
+                >
+                  <Phone size={18} aria-hidden />
+                  Call 9371696151
+                </a>
+              </div>
+            </motion.article>
           </div>
-
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '24px' }}
-            transition={{ duration: 0.4 }}
-            className="mx-auto max-w-4xl bg-white rounded-2xl md:rounded-3xl shadow-lg shadow-gray-200/80 overflow-hidden border border-gray-100 flex flex-col md:flex-row"
-          >
-            {/* Image: full photo visible, no harsh crop; side-by-side on desktop */}
-            <div className="relative w-full md:w-[260px] lg:w-[300px] aspect-[3/4] min-h-[280px] md:min-h-[320px] overflow-hidden bg-gray-100 flex-shrink-0">
-              <img
-                src="https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-02-14%20at%2019.04.00%20(1).jpeg"
-                alt="The Kids Castle Fest, Director of UNITOTS"
-                className="w-full h-full object-contain object-center bg-gray-50"
-                loading="lazy"
-                decoding="async"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.onerror = null;
-                  target.src = 'https://placehold.co/400x533/FEF3C7/F59E0B?text=Director';
-                }}
-              />
-            </div>
-
-            {/* Content: right on desktop, below image on mobile */}
-            <div className="flex flex-col justify-center p-5 sm:p-6 md:p-8 flex-1 min-w-0">
-              <p className="text-pink-500 font-semibold text-xs sm:text-sm uppercase tracking-wide mb-1">Director</p>
-              <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-4 sm:mb-5">The Kids Castle Fest</h3>
-
-              <div className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-5">
-                <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-amber-100 text-amber-800">B.com</span>
-                <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-blue-100 text-blue-800">5+ years experience</span>
-              </div>
-
-              <p className="text-gray-600 text-xs sm:text-sm font-medium mb-2">Expertise</p>
-              <div className="flex flex-wrap gap-2 mb-5 sm:mb-6">
-                <span className="px-3 py-1.5 rounded-lg text-xs sm:text-sm bg-gray-100 text-gray-700">Drawing / Sketching</span>
-                <span className="px-3 py-1.5 rounded-lg text-xs sm:text-sm bg-gray-100 text-gray-700">Abacus</span>
-                <span className="px-3 py-1.5 rounded-lg text-xs sm:text-sm bg-gray-100 text-gray-700">Personality Development</span>
-              </div>
-
-              <a
-                href="tel:+919371696151"
-                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-5 py-3 rounded-xl bg-pink-500 text-white font-bold text-sm sm:text-base shadow-md hover:bg-pink-600 active:scale-[0.98] transition-all touch-manipulation"
-              >
-                <Phone size={20} aria-hidden />
-                Call 9371696151
-              </a>
-            </div>
-          </motion.article>
         </div>
       </section>
 
