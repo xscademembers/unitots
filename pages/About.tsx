@@ -137,12 +137,12 @@ const About: React.FC = () => {
                 <p className="text-gray-600 text-sm mb-3">B.com · 5+ years experience</p>
                 <p className="text-gray-500 text-xs sm:text-sm mb-4">Drawing &amp; sketching, Abacus, Personality Development</p>
                 <a
-                  href="tel:+919371696151"
+                  href="tel:+919371112769"
                   className="inline-flex items-center justify-center gap-2 min-h-[40px] px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold text-sm shadow-sm hover:bg-pink-600 active:scale-[0.98] transition-transform touch-manipulation"
-                  aria-label="Call 9371696151"
+                  aria-label="Call +91 9371112769"
                 >
                   <Phone size={18} aria-hidden />
-                  Call 9371696151
+                  Call +91 9371112769
                 </a>
               </div>
             </motion.article>
@@ -171,9 +171,14 @@ const About: React.FC = () => {
               </div>
               <div className="flex-1 text-center sm:text-left min-w-0">
                 <p className="text-pink-500 font-semibold text-xs uppercase tracking-wider mb-1">Director</p>
-                <h3 className="font-display text-lg sm:text-xl font-bold text-gray-800 mb-2">Dipika Dhabalia</h3>
-                <p className="text-gray-600 text-sm mb-3">M.com, Montessori · 10+ years experience</p>
-                <p className="text-gray-500 text-xs sm:text-sm mb-4">Abacus, Vedic Maths, Handwriting &amp; Calligraphy, Numerology</p>
+                <h3 className="font-display text-lg sm:text-xl font-bold text-gray-800 mb-1">Dipika Dhabalia</h3>
+                <p className="text-gray-500 text-xs sm:text-sm mb-2">(Director)</p>
+                <p className="text-gray-600 text-sm mb-2">Qualification: M.com, Montessori training</p>
+                <p className="text-gray-600 text-sm mb-2">Experience: 10+ years</p>
+                <p className="text-gray-500 text-xs sm:text-sm mb-4">
+                  Expertise: Abacus Instructor (since 2010), Vedic Maths Instructor (since 2016),
+                  Handwriting &amp; Calligraphy Instructor (5+ yrs), Numerology consultant (2023)
+                </p>
                 <a
                   href="tel:+919371696151"
                   className="inline-flex items-center justify-center gap-2 min-h-[40px] px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold text-sm shadow-sm hover:bg-pink-600 active:scale-[0.98] transition-transform touch-manipulation"
