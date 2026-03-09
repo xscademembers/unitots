@@ -120,7 +120,7 @@ const About: React.FC = () => {
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 rounded-full overflow-hidden bg-gray-100 ring-2 ring-pink-100">
                 <img
                   src="https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-02-14%20at%2019.04.00%20(1).jpeg"
-                  alt="The Kids Castle Fest, Director of UNITOTS"
+                  alt="Priyanka Agrawal, Director of UNITOTS"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
                   decoding="async"
@@ -133,7 +133,7 @@ const About: React.FC = () => {
               </div>
               <div className="flex-1 text-center sm:text-left min-w-0">
                 <p className="text-pink-500 font-semibold text-xs uppercase tracking-wider mb-1">Director</p>
-                <h3 className="font-display text-lg sm:text-xl font-bold text-gray-800 mb-2">The Kids Castle Fest</h3>
+                <h3 className="font-display text-lg sm:text-xl font-bold text-gray-800 mb-2">Priyanka Agrawal</h3>
                 <p className="text-gray-600 text-sm mb-3">B.com · 5+ years experience</p>
                 <p className="text-gray-500 text-xs sm:text-sm mb-4">Drawing &amp; sketching, Abacus, Personality Development</p>
                 <a
