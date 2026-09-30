@@ -122,27 +122,44 @@ export const SERVICES = [
   }
 ];
 
-// Gallery media: images and videos (no duplicates)
+// Gallery media: images and videos from public/gallery (synced from "images assests")
 export type GalleryMediaItem = { type: 'image'; url: string } | { type: 'video'; url: string };
+
+const galleryUrl = (filename: string) =>
+  `/gallery/${encodeURIComponent(filename).replace(/%2F/gi, '/')}`;
 
 export const GALLERY_MEDIA: GalleryMediaItem[] = [
   // Images
-  { type: 'image', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-01-30%20at%2015.48.23%20(1).jpeg' },
-  { type: 'image', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-01-30%20at%2015.48.23%20(2).jpeg' },
-  { type: 'image', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-01-30%20at%2015.48.23.jpeg' },
-  { type: 'image', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-01-30%20at%2015.48.24%20(1).jpeg' },
-  { type: 'image', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-01-30%20at%2015.48.24.jpeg' },
-  { type: 'image', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-01-30%20at%2015.48.24%20(2).jpeg' },
-  { type: 'image', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-01-30%20at%2015.48.25%20(1).jpeg' },
-  { type: 'image', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-01-30%20at%2015.48.25%20(2).jpeg' },
-  { type: 'image', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-01-30%20at%2015.48.25.jpeg' },
-  { type: 'image', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Image%202026-01-30%20at%2022.25.24.jpeg' },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.47.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.48.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.48 (1).jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.49.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.51.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.52.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.52 (1).jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.53.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.54.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.55.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.55 (1).jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.56.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.00.59.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.02.09.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.02.10.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.02.11.jpeg') },
+  { type: 'image', url: galleryUrl('WhatsApp Image 2026-09-30 at 06.02.13.jpeg') },
   // Videos
-  { type: 'video', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Video%202026-01-30%20at%2015.48.21.mp4' },
-  { type: 'video', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Video%202026-01-30%20at%2015.48.22%20(1).mp4' },
-  { type: 'video', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Video%202026-01-30%20at%2015.48.22%20(2).mp4' },
-  { type: 'video', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Video%202026-01-30%20at%2015.48.22.mp4' },
-  { type: 'video', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Video%202026-01-30%20at%2015.48.26%20(3).mp4' },
-  { type: 'video', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Video%202026-01-30%20at%2015.48.26.mp4' },
-  { type: 'video', url: 'https://storage.googleapis.com/new_client_files/unitots/WhatsApp%20Video%202026-01-31%20at%2012.56.28.mp4' },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 05.57.51.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 05.58.44.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 05.59.42.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 06.00.41.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 06.00.41 (1).mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 06.00.44.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 06.00.46.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 06.00.57.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 06.01.22.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 06.08.22.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 06.23.28.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 06.23.28 (1).mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 06.45.39.mp4') },
+  { type: 'video', url: galleryUrl('WhatsApp Video 2026-09-30 at 21.22.41.mp4') },
 ];

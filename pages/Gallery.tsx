@@ -167,11 +167,15 @@ const Gallery: React.FC = () => {
       .then((data) => {
         if (cancelled) return;
         const items = Array.isArray(data?.items) ? data.items : [];
-        if (items.length > 0) {
-          setMedia(items.map(normalizeGalleryItem));
-        }
+        // Keep local folder assets always visible; prepend admin uploads (base64) only
+        const uploaded = items
+          .filter((item: { data?: string }) => typeof item?.data === 'string' && item.data.length > 0)
+          .map(normalizeGalleryItem);
+        setMedia(uploaded.length > 0 ? [...uploaded, ...GALLERY_MEDIA] : GALLERY_MEDIA);
       })
-      .catch(() => {});
+      .catch(() => {
+        if (!cancelled) setMedia(GALLERY_MEDIA);
+      });
     return () => { cancelled = true; };
   }, []);
 
